@@ -906,7 +906,7 @@ void ship()
     //base
     glPushMatrix();
     glTranslatef(boatPosition,0.0f, 0.0f);
-    glColor3ub(255,110,0);
+    glColor3ub(51, 51, 0);
     glBegin(GL_POLYGON);
    glVertex2f(-0.69f, -0.30f);
    glVertex2f(-0.62f, -0.30f);
@@ -1268,13 +1268,13 @@ void person1()
 void hut()
 {
     //structures
-    glColor3ub(132,31,39);
+    glColor3ub(153, 204, 0);
     glBegin(GL_TRIANGLES);
     glVertex2f(0.544f, -0.14f);
     glVertex2f(0.74f, -0.14f);
     glVertex2f(0.642f,0.14);
     glEnd();
-    glColor3ub(220,20,60);
+    glColor3ub(204, 204, 0);
     glBegin(GL_QUADS);
     glVertex2f(0.56f, -0.42f);
     glVertex2f(0.73f, -0.42f);
@@ -1394,13 +1394,13 @@ void vehicle()//This is the truck
 void hut2()
 {
 
-    glColor3ub(255,150,0);
+    glColor3ub(153, 0, 0);
     glBegin(GL_TRIANGLES);
     glVertex2f(-.79,-0.50);
     glVertex2f(-0.62,-0.50);
     glVertex2f(-0.71,-0.30);
     glEnd();
-    glColor3ub(255,100,0);
+    glColor3ub(204, 0, 0);
     glBegin(GL_POLYGON);
     glVertex2f(-.78,-0.72);
     glVertex2f(-0.63,-0.72);
@@ -1557,7 +1557,7 @@ void fristDesign(){
 
 
         glColor3ub(179, 0, 0);
-        renderBitmapString(-.15,.26,(void *)font1,"High Way Scenario");
+        renderBitmapString(-.20,.32,(void *)font1,"Hill And Highway Scenario");
 
         glColor3ub(0, 179, 0);
         renderBitmapString(-.18,0.06,(void *)font1,"Press SPACE to START");
@@ -1565,8 +1565,8 @@ void fristDesign(){
 
         glColor3ub(255, 0, 0);
         renderBitmapString(-0.189,-0.048,(void *)font2," 17-33888-1 Ahmed, Tajbiul");
-        renderBitmapString(-0.25,-0.12,(void *)font2," 17-33868-1  Rahman Md Muminur");
-        renderBitmapString(-0.189,-0.20,(void *)font2," ========================");
+        renderBitmapString(-0.25,-0.12,(void *)font2,"   17-33868-1 Rahman, Md. Muminur");
+        renderBitmapString(-0.189,-0.20,(void *)font2,"  18-36886-1 Mostofa, Nowrin ");
 
 
 }
