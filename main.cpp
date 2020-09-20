@@ -1702,6 +1702,7 @@ void myKeyboard(unsigned char key, int x, int y)
     switch(key)
     {
 
+
         case 'a'://press a to slow truck
             truckSpeed -= 0.03f;
            // PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
@@ -1813,6 +1814,7 @@ int main(int argc, char** argv)
     glutTimerFunc(1000, updateTruck, 0);
     glutTimerFunc(1000, updateCar, 0);
     glutTimerFunc(1000, updateSun, 0);
+
 
 
     glutMainLoop();
