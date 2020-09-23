@@ -28,12 +28,7 @@ void renderBitmapString(float x, float y, void *font,const char *string)
         glutBitmapCharacter(font, *c);
     }
 }
-
 bool isItNight = false;
-bool rainday = false;
-float   _rain = 0.0;
-
-
 
 void night(int value);
 GLfloat angle = 0.0f;
@@ -89,23 +84,6 @@ void updateFan(int value)
 
 	glutTimerFunc(1, updateFan, 0);
 
-}
-GLfloat positionperson1 = 0.0f;
-GLfloat speedperson1 = 0.003f;
-
-
-
-void updateperson1(int value) {
-
-    if(positionperson1 > 0.3)
-        positionperson1 = 1.0f;
-
-    positionperson1 += speedperson1;
-
-	glutPostRedisplay();
-
-
-	glutTimerFunc(100, updateperson1, 0);
 }
 
 
@@ -217,7 +195,7 @@ void windmilStick()
 {
     glScalef(.5,.5,0);
     glTranslatef(-.68,0, 0);
-    glColor3ub (255, 255 , 255);
+    glColor3ub (204, 51, 0);
     glBegin(GL_POLYGON);
     glVertex2f(0.52f, -0.3f);
     glVertex2f(0.51f, -1.0f);
@@ -245,7 +223,7 @@ glTranslatef(-.68,0, 0);
 //propeller for mill 1
 
         glBegin(GL_TRIANGLE_FAN);
-        glColor3f(255,255,255);
+        glColor3f(255, 255, 204);
         for (a=1.0f;a<360.0f;a+=0.2)
         {
             x2 = x1+sin(a)*radius;
@@ -432,20 +410,6 @@ void hills()
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
-glVertex2f(-0.55f, 0.36f);
-glVertex2f(-0.8f, -0.1f);
-glVertex2f(-0.68f, -0.13f);
-glEnd();
-glColor3ub (3, 182, 10);
-glBegin(GL_TRIANGLES);
-glVertex2f(-0.55f, 0.36f);
-glVertex2f(-0.68f, -0.13f);
-glVertex2f(-0.3f, -0.13f);
-glEnd();
-//Hills 2
-
-glColor3ub (0, 102, 0);
-glBegin(GL_POLYGON);
 glVertex2f(-0.15f, 0.3f);
 glVertex2f(-0.4f, -0.32f);
 glVertex2f(-0.24f, -0.38f);
@@ -457,7 +421,7 @@ glVertex2f(-0.24f, -0.38f);
 glVertex2f(0.1f, -0.38f);
 glEnd();
 
-//HILLS 3
+//HILLS 2
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
 glVertex2f(-0.85f, 0.12f);
@@ -471,7 +435,7 @@ glVertex2f(-1.0f, -0.55f);
 glVertex2f(-0.69f, -0.55f);
 glEnd();
 
-//Hills 4
+//Hills 3
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -495,7 +459,7 @@ glVertex2f(0.2f, -0.05f);
 glVertex2f(0.38f, -0.05f);
 glEnd();
 
-//Hills 5
+//Hills 4
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -510,7 +474,7 @@ glVertex2f(0.0f, -0.45f);
 glVertex2f(0.28f, -0.45f);
 glEnd();
 
-//Hills 6
+//Hills 5
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -525,7 +489,7 @@ glVertex2f(0.18f, -0.57f);
 glVertex2f(0.4f, -0.57f);
 glEnd();
 
-//Hills 7
+//Hills 6
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -546,7 +510,7 @@ glVertex2f(0.2f, -0.05f);
 glVertex2f(0.38f, -0.05f);
 glEnd();
 
-//Hills 8
+//Hills 7
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -561,7 +525,7 @@ glVertex2f(0.65f, -0.08f);
 glVertex2f(0.9f, -0.08f);
 glEnd();
 
-//Hills 8
+//Hills 7
 
 glColor3ub (0, 102, 0);
 glBegin(GL_POLYGON);
@@ -864,7 +828,7 @@ void sky(int val)
 }
 void night(int value)
 {
- //sndPlaySound("crick.wav",SND_ASYNC);
+
     glBegin(GL_POLYGON); //Sky
 	glColor3f(0.0, 0.0, 0.0);
 	glVertex2f(-1,1);
@@ -1233,41 +1197,6 @@ void bridge()
    glEnd();
 }
 
-
-void person1()
-{
-    glPushMatrix();
-    glTranslatef(positionperson1,positionperson1, 0.0f);
-    glColor3ub(138,43,226);
-    glBegin(GL_POLYGON);
-    glVertex2f(0.3,-0.65);
-    glVertex2f(0.358,-0.65);
-    glVertex2f(0.345,-0.54);
-    glVertex2f(0.315,-0.54);
-    glEnd();
-    //head
-    glColor3ub(222,184,135);
-    circleSolid(0.338f,-0.51f,0.03f);
-
-    glColor3ub(222,184,135);
-    glLineWidth(5.5f);
-    glBegin(GL_LINES);
-    //hands
-    glVertex2f(0.315f,-0.55f);
-    glVertex2f(0.302f,-0.64f);
-    glVertex2f(0.346f,-0.55f);
-    glVertex2f(0.39f,-0.64f);
-    //legs
-    glVertex2f(0.315f,-0.65f);
-    glVertex2f(0.315f,-0.73f);
-    glVertex2f(0.342f,-0.65f);
-    glVertex2f(0.342f,-0.73f);
-
-    glEnd();
-    glPopMatrix();
-
-}
-
 void hut()
 {
     //structures
@@ -1342,7 +1271,7 @@ void vehicle()//This is the truck
 
    //body
 
-    glColor3ub(0,255,255);
+    glColor3ub(102, 102, 255);
     glBegin(GL_POLYGON);
     glVertex2f(-0.9f,-0.86f);
     glVertex2f(-0.68f, -0.86f);
@@ -1358,7 +1287,7 @@ void vehicle()//This is the truck
     glVertex2f(-0.9f,-0.9f);
     glEnd();
     //front
-    glColor3ub(240,0,0);
+    glColor3ub(255, 255, 102);
     glBegin(GL_POLYGON);
     glVertex2f(-0.67f,-0.86f);
     glVertex2f(-0.58f, -0.86f);
@@ -1428,7 +1357,7 @@ void drawWindmill() {
     glScalef(.5,.5,0);
 	glTranslatef(-.15,-0.3, 0);
 	glRotated(angle * (180.0/46), 0, 0, 1);
-	glColor3f(255.0f, 255.0f, 255.0f);
+	glColor3ub(255, 255, 204);
 	for (i = 0; i < 3; i++)
         {
 		glRotated(120, 0, 0, 1);  // Note: These rotations accumulate.
@@ -1450,7 +1379,7 @@ void vehicle2()//This is the car
 glPushMatrix();
 glTranslatef(carPosition,0.0f, 0.0f);
       //body
-    glColor3ub(255,255,0);
+    glColor3ub(214, 214, 194);
     glBegin(GL_POLYGON);
     glVertex2f(0.0f,-0.94f);
     glVertex2f(0.275f, -0.94f);
@@ -1462,7 +1391,7 @@ glTranslatef(carPosition,0.0f, 0.0f);
     glVertex2f(0.0f,-0.856f);
     glEnd();
     //wheels
-    glColor3ub(233,0,0);
+    glColor3ub(0,0,0);
     circleSolid(0.07,-0.938,0.035);
     circleSolid(0.2,-0.938,0.035);
     //
@@ -1511,7 +1440,7 @@ glPopMatrix();
 
 }
 
-void Rain(int value){
+/*void Rain(int value){
 
 if(rainday){
 
@@ -1536,7 +1465,7 @@ if(rainday){
     glFlush();
 
 }
-}
+}*/
 
 void fristDesign(){
 
@@ -1564,7 +1493,6 @@ void fristDesign(){
 
         glColor3ub(0, 179, 0);
         renderBitmapString(-.18,0.06,(void *)font1,"Press SPACE to START");
-        //renderBitmapString(38,72,(void *)font1,"Press ESC to Exit");
 
         glColor3ub(255, 0, 0);
         renderBitmapString(-0.189,-0.048,(void *)font2," 17-33888-1 Ahmed, Tajbiul");
@@ -1576,17 +1504,17 @@ void fristDesign(){
 
 void LastDesign()
 {
- glClearColor(.8, .7, 0, 100);
+ glClearColor(.6, .9, 0, 100);
     //menu
-    glColor3ub(0,300,300);
-        glBegin(GL_POLYGON);
+    glColor3ub(102, 51, 0);
+        glBegin(GL_QUADS);
         glVertex2f(-.28,-.5);
         glVertex2f(.28,-0.5);
         glVertex2f(0.28,0.5);
         glVertex2f(-0.28,0.5);
 
         glEnd();
-        glBegin(GL_TRIANGLES);
+        /*glBegin(GL_TRIANGLES);
         glVertex2f(-.28,-.5);
 
         glVertex2f(0.28,0.5);
@@ -1599,11 +1527,11 @@ void LastDesign()
         glVertex2f(0.28,0.5);
         glVertex2f(0.38,0.05);
 
-        glEnd();
+        glEnd();*/
 
 
-        glColor3ub(20, 222, 100);
-        renderBitmapString(-.11,0.06,(void *)font1,"Thank You !");
+        glColor3ub(255, 255, 204);
+        renderBitmapString(-.11,0.06,(void *)font1,"Thank You ");
 
 }
 void sound()
@@ -1660,21 +1588,13 @@ void myDisplay(void)
     clouds1();
     clouds2();
 
-      hut();
-
-
-
-    //person2();
-
+    hut();
     bridge();
     tree();
     ship();
-    person1();
+
     hut2();
-        if(rainday == true)
-        {
-            Rain(1);
-        }
+
 
 
     vehicle();
@@ -1706,19 +1626,18 @@ void myKeyboard(unsigned char key, int x, int y)
     {
 
 
-        case 'a'://press a to slow truck
+        case 's'://press s to slow truck
             truckSpeed -= 0.03f;
-           // PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
-             //sndPlaySound("crick.wav",SND_ASYNC);
+
             break;
 
-        case 'd'://press d to fast truck
+        case 'f'://press f to fast truck
             truckSpeed += 0.05f;
-            //sndPlaySound("sound filename.extension",SND_ASYNC);
+
             break;
         case 'j'://press j to slow car
             carSpeed -= 0.03f;
-            //sndPlaySound("sound filename.extension",SND_ASYNC);
+
             break;
 
         case 'x'://press x
@@ -1726,21 +1645,17 @@ void myKeyboard(unsigned char key, int x, int y)
             break;
 
 
-        case 'k'://press k to fast car
+        case 'i'://press i to fast car
             carSpeed += 0.05f;
             break;
 
-        case 's':
 
-        sndPlaySound("crick.wav",SND_ASYNC);
-
-        break;
        case 'm':
         sndPlaySound(NULL,SND_ASYNC);
         break;
         case ' ':
             if(start_flag==0){
-                            //  printf("AShce!");
+                            //  printf("running");
                 start_flag = 1;}
                 else if(start_flag == 1)
                 {
@@ -1775,19 +1690,19 @@ glLoadIdentity();*/
 int main(int argc, char** argv)
 {
 
-    cout << endl << "Project"<< endl << endl;
+    cout << endl << "Computer Graphics Project"<< endl << endl;
+    cout << endl << "Sec:H"<< endl << endl;
 
-    cout << "Press a : To Slow down the Truck" << endl << endl;
-    cout << "Press  d: to make the truck drive faster" << endl << endl;
+    cout <<"Press s : To Slow down the Truck" << endl << endl;
+    cout <<"Press  f: to make the truck drive faster" << endl << endl;
 
-    cout << "Press  x: To  blow horn of the car" << endl;
-    cout << "Press  j: To Stop the horn" << endl << endl;
+    cout <<"Press  x: To  blow horn of the car" << endl;
 
-    cout << "Press  k: to make the car drive faster" << endl << endl;
-    cout << "Press  j: To Slow down the car" << endl << endl;
 
-    cout << "Press  s: To Hear  The night sound" << endl;
-    cout << "Press  m: To Hear  The night sound" << endl;
+    cout <<"Press  i: to make the car drive faster" << endl << endl;
+    cout <<"Press  j: To Slow down the car" << endl << endl;
+
+
 
 
 
@@ -1813,7 +1728,6 @@ int main(int argc, char** argv)
     glutTimerFunc(1000, updateCloud, 0);
     glutTimerFunc(1000, updateCloud1, 0);
     glutTimerFunc(1000, updateFan, 0);
-    glutTimerFunc(1000, updateperson1, 0);
     glutTimerFunc(1000, updateTruck, 0);
     glutTimerFunc(1000, updateCar, 0);
     glutTimerFunc(1000, updateSun, 0);
