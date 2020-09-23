@@ -230,7 +230,8 @@ void windmilStick()
 
 }
 void windMills()
-{
+{glScalef(.5,.5,0);
+glTranslatef(-.68,0, 0);
     float x1,y1,x2,y2;
     float a;
     double radius=0.027;
@@ -252,7 +253,7 @@ void windMills()
             glVertex2f(x2,y2);
         }
        glEnd();
-
+ glLoadIdentity();
 
 
 angle+= 0.05;
