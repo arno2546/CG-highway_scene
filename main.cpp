@@ -208,15 +208,16 @@ void windmilStick()
 
 }
 void windMills()
-{glScalef(.5,.5,0);
-glTranslatef(-.68,0, 0);
+{
+    glScalef(.5,.5,0);
+    glTranslatef(-.68,0, 0);
     float x1,y1,x2,y2;
     float a;
     double radius=0.027;
 
       x1=0.53, y1= -0.30;
 
-//Wind mills 1
+//Wind mills
 
 
 
@@ -850,7 +851,7 @@ void night(int value)
 	glEnd();
 
     glutPostRedisplay();
-    glutTimerFunc(1000, updateMoon, 0);
+    glutTimerFunc(100, updateMoon, 0);
 
 
 }
@@ -1050,13 +1051,16 @@ glEnd();
 }
 void grass1()
 {
-    glColor3ub(28,230,0);
+    glColor3ub(204, 102, 0);
     glBegin(GL_POLYGON);
     glVertex2f(-0.69f, -0.55f);
+     glColor3ub(0, 153, 51);
     glVertex2f(-1.0f, -0.55f);
     glVertex2f(-1.0,-1.0);
+    glColor3ub(0, 153, 51);
     glVertex2f(-0.57,-1.0);
     glVertex2f(-0.57,-0.72);
+     glColor3ub(204, 102, 0);
     glVertex2f(-0.55,-0.69);
     glVertex2f(-0.53,-0.67);
     glVertex2f(-0.51,-0.65);
@@ -1094,12 +1098,12 @@ void road1()
 }
 void grass2()
 {
-    glColor3ub(34,139,34);
+    glColor3ub(0, 179, 60);
     glBegin(GL_POLYGON);
     glVertex2f(0.0f, 0.0f);
-    glColor3ub(50,205,50);
+    glColor3ub(0, 204, 68);
     glVertex2f(-0.4f, -0.33f);
-    glColor3ub(28,230,0);
+    glColor3ub(204,102,0);
     glVertex2f(-0.4f,-1.0);
     glVertex2f(1.0f,-1.0);
 
@@ -1710,7 +1714,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
     glutInitWindowSize (1200, 680);
     glutInitWindowPosition (50, 10);
-    glutCreateWindow ("");
+    glutCreateWindow ("Computer Graphics Project");
 
     myInit();
 
