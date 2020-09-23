@@ -30,8 +30,6 @@ void renderBitmapString(float x, float y, void *font,const char *string)
 }
 
 bool isItNight = false;
-bool rainday = false;
-float   _rain = 0.0;
 
 
 
@@ -215,8 +213,8 @@ void updateCloud1(int value) {
 }
 void windmilStick()
 {
-    //windmill one stick
-        glColor3ub (255, 255 , 255);
+    //windmill stick
+    glColor3ub (169,169,169);
     glBegin(GL_POLYGON);
     glVertex2f(0.52f, -0.3f);
     glVertex2f(0.51f, -1.0f);
@@ -231,7 +229,7 @@ void windMills()
 {
     float x1,y1,x2,y2;
     float a;
-    double radius=0.027;
+    //double radius=0.027;
 
       x1=0.53, y1= -0.30;
 
@@ -242,7 +240,7 @@ void windMills()
 //propeller for mill 1
 
         glBegin(GL_TRIANGLE_FAN);
-        glColor3f(255,255,255);
+        glColor3f(169,169,169);
         for (a=1.0f;a<360.0f;a+=0.2)
         {
             x2 = x1+sin(a)*radius;
@@ -1235,7 +1233,7 @@ void person1()
 {
     glPushMatrix();
     glTranslatef(positionperson1,positionperson1, 0.0f);
-    glColor3ub(138,43,226);
+    glColor3ub(144,60,124);
     glBegin(GL_POLYGON);
     glVertex2f(0.3,-0.65);
     glVertex2f(0.358,-0.65);
@@ -1425,10 +1423,10 @@ void drawWindmill() {
 
 	glTranslatef(0.53,-0.3, 0);
 	glRotated(angle * (180.0/46), 0, 0, 1);
-	glColor3f(255.0f, 255.0f, 255.0f);
+	glColor3ub(169, 169, 169);
 	for (i = 0; i < 3; i++)
         {
-		glRotated(120, 0, 0, 1);  // Note: These rotations accumulate.
+		glRotated(120, 0, 0, 1);  //These rotations accumulate.
 		glBegin(GL_POLYGON);
 		glVertex2f(0.035,0);
 		glVertex2f(0.15f, -0.03f);
@@ -1508,32 +1506,7 @@ glPopMatrix();
 
 }
 
-void Rain(int value){
 
-if(rainday){
-
-    _rain += 0.01f;
-
-    glBegin(GL_POINTS);
-    for(int i=1;i<=10;i++)
-    {
-        int x= ((double) rand() / (RAND_MAX)) + 1;
-       int  y= ((double) rand() / (RAND_MAX)) + 1;
-
-        glBegin(GL_LINES);
-        glColor3f(255.0, 255.0, 255.0);
-        glVertex2f(x,y);
-        glVertex2f(x+.1,y+.1);
-        glEnd();
-    }
-
-	glutPostRedisplay();
-	glutTimerFunc(100, Rain, 0);
-
-    glFlush();
-
-}
-}
 
 void fristDesign(){
 
@@ -1634,7 +1607,7 @@ void myDisplay(void)
         night(1);
 
 
-       // PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
+       //PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
         }
 
 
@@ -1668,10 +1641,7 @@ void myDisplay(void)
     ship();
     person1();
     hut2();
-        if(rainday == true)
-        {
-            Rain(1);
-        }
+
 
 
     vehicle();
@@ -1703,17 +1673,17 @@ void myKeyboard(unsigned char key, int x, int y)
     {
 
 
-        case 'a'://press a to slow truck
+        case 's'://press s to slow truck
             truckSpeed -= 0.03f;
            // PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
              //sndPlaySound("crick.wav",SND_ASYNC);
             break;
 
-        case 'd'://press d to fast truck
+        case 'f'://press f to fast truck
             truckSpeed += 0.05f;
             //sndPlaySound("sound filename.extension",SND_ASYNC);
             break;
-        case 'j'://press j to slow car
+        case 'i'://press i to slow car
             carSpeed -= 0.03f;
             //sndPlaySound("sound filename.extension",SND_ASYNC);
             break;
@@ -1723,13 +1693,11 @@ void myKeyboard(unsigned char key, int x, int y)
             break;
 
 
-        case 'k'://press k to fast car
+        case 'j'://press j to fast car
             carSpeed += 0.05f;
             break;
 
-        case 's':
 
-        sndPlaySound("crick.wav",SND_ASYNC);
 
         break;
        case 'm':
@@ -1737,7 +1705,7 @@ void myKeyboard(unsigned char key, int x, int y)
         break;
         case ' ':
             if(start_flag==0){
-                            //  printf("AShce!");
+                            //  printf("Done");
                 start_flag = 1;}
                 else if(start_flag == 1)
                 {
@@ -1772,20 +1740,16 @@ glLoadIdentity();*/
 int main(int argc, char** argv)
 {
 
-    cout << endl << "Project"<< endl << endl;
+    cout << endl << "CG Project"<< endl << endl;
 
-    cout << "Press a : To Slow down the Truck" << endl << endl;
-    cout << "Press  d: to make the truck drive faster" << endl << endl;
+    cout << "Press s : To Slow down the Truck" << endl << endl;
+    cout << "Press  f: to make the truck drive faster" << endl << endl;
 
     cout << "Press  x: To  blow horn of the car" << endl;
-    cout << "Press  j: To Stop the horn" << endl << endl;
 
-    cout << "Press  k: to make the car drive faster" << endl << endl;
-    cout << "Press  j: To Slow down the car" << endl << endl;
 
-    cout << "Press  s: To Hear  The night sound" << endl;
-    cout << "Press  m: To Hear  The night sound" << endl;
-
+    cout << "Press  j: to make the car drive faster" << endl << endl;
+    cout << "Press  i: To Slow down the car" << endl << endl;
 
 
     glutInit(&argc, argv);
