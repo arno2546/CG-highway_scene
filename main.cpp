@@ -147,7 +147,7 @@ void updateMoon(int value) {
 
     glutPostRedisplay();
 	glutTimerFunc(100, updateMoon, 0);
-	PlaySound(NULL, 0, 0);
+
 }
 
 
@@ -590,8 +590,6 @@ void moon()
             glVertex2f(x2,y2);
 
         }
-      //  sndPlaySound("crick.wav",SND_ASYNC);
-//PlaySound(NULL, 0, 0);
        glEnd();
     glPopMatrix();
 
@@ -1444,33 +1442,6 @@ glPopMatrix();
 
 }
 
-/*void Rain(int value){
-
-if(rainday){
-
-    _rain += 0.01f;
-
-    glBegin(GL_POINTS);
-    for(int i=1;i<=10;i++)
-    {
-        int x= ((double) rand() / (RAND_MAX)) + 1;
-       int  y= ((double) rand() / (RAND_MAX)) + 1;
-
-        glBegin(GL_LINES);
-        glColor3f(255.0, 255.0, 255.0);
-        glVertex2f(x,y);
-        glVertex2f(x+.1,y+.1);
-        glEnd();
-    }
-
-	glutPostRedisplay();
-	glutTimerFunc(100, Rain, 0);
-
-    glFlush();
-
-}
-}*/
-
 void fristDesign(){
 
 
@@ -1518,22 +1489,6 @@ void LastDesign()
         glVertex2f(-0.28,0.5);
 
         glEnd();
-        /*glBegin(GL_TRIANGLES);
-        glVertex2f(-.28,-.5);
-
-        glVertex2f(0.28,0.5);
-        glVertex2f(-0.38,0.15);
-
-        glEnd();
-    glBegin(GL_TRIANGLES);
-        glVertex2f(-.28,-.5);
-
-        glVertex2f(0.28,0.5);
-        glVertex2f(0.38,0.05);
-
-        glEnd();*/
-
-
         glColor3ub(255, 255, 204);
         renderBitmapString(-.11,0.06,(void *)font1,"Thank You ");
 
@@ -1551,7 +1506,6 @@ void myDisplay(void)
     glPointSize(2.0);
     if(start_flag ==0 )
     {
-      //  glClearColor(0, 392, 0,1);
         fristDesign();
 
 
@@ -1563,19 +1517,16 @@ void myDisplay(void)
      glClearColor(255, 392, 0,1);
         sky(1);
 
-    if(sunPosition < -.7)
+    if(sunPosition < -.9)
         {
 
         night(1);
-
-
-       // PlaySound("crick.wav", NULL, SND_FILENAME|SND_LOOP);
         }
 
 
     //night(1);
     sun();
-     moon();
+    moon();
 
 
 
@@ -1584,7 +1535,7 @@ void myDisplay(void)
 
     hills();
 
-     grass1();
+    grass1();
 
     road1();
     road2();
@@ -1604,10 +1555,9 @@ void myDisplay(void)
     vehicle();
     vehicle2();
 
-     windMills();
+    windMills();
     windmilStick();
-
-     drawWindmill();
+    drawWindmill();
  }
 
      else if(start_flag == 2)
