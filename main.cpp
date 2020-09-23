@@ -215,14 +215,16 @@ void updateCloud1(int value) {
 }
 void windmilStick()
 {
-    //windmill one stick
-        glColor3ub (255, 255 , 255);
+    glScalef(.5,.5,0);
+    glTranslatef(-.68,0, 0);
+    glColor3ub (255, 255 , 255);
     glBegin(GL_POLYGON);
     glVertex2f(0.52f, -0.3f);
     glVertex2f(0.51f, -1.0f);
     glVertex2f(0.55f, -1.0f);
     glVertex2f(0.54f, -0.3f);
     glEnd();
+    glLoadIdentity();
 
 
 
@@ -1422,8 +1424,8 @@ void hut2()
 }
 void drawWindmill() {
 	int i;
-
-	glTranslatef(0.53,-0.3, 0);
+    glScalef(.5,.5,0);
+	glTranslatef(-.15,-0.3, 0);
 	glRotated(angle * (180.0/46), 0, 0, 1);
 	glColor3f(255.0f, 255.0f, 255.0f);
 	for (i = 0; i < 3; i++)
